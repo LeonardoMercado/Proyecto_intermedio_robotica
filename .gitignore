@@ -23,6 +23,7 @@ devel_isolated/
 
 # Ignore generated docs
 *.dox
+*.odt
 *.wikidoc
 
 # eclipse stuff
