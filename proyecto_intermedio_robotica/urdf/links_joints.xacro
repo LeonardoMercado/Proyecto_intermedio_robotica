@@ -72,6 +72,35 @@
     </gazebo>
  </xacro:macro>
 
+ <xacro:macro name="link_mesh" params="name origin_xyz origin_rpy meshfile mass ixx ixy ixz iyy iyz izz">
+    <link name="${name}">
+      <inertial>
+        <mass value="${mass}" />
+        <origin rpy="${origin_rpy}" xyz="${origin_xyz}" />
+        <inertia ixx="${ixx}" ixy="${ixy}" ixz="${ixz}" iyy="${iyy}" iyz="${iyz}" izz="${izz}" />
+      </inertial>
+      <collision>
+        <origin rpy="${origin_rpy}" xyz="${origin_xyz}" />
+        <geometry>
+          <mesh filename="${meshfile}" scale="1 1 1"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin rpy="${origin_rpy}" xyz="${origin_xyz}" />
+        <geometry>
+          <mesh filename="${meshfile}" scale="1 1 1"/>
+        </geometry>
+        <material name="red">
+          <color rgba="1.0 0.0 0.0 1.0"/>
+        </material>
+      </visual>
+    </link>
+    <gazebo reference="${name}">
+        <material>Gazebo/WhiteGlow</material>
+    </gazebo>
+ </xacro:macro>
+
+
  <xacro:macro name="create_noa" params="name origin_rpy origin_xyz parent">
   <link name="${name}">
    <!-- <visual>

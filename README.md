@@ -1,7 +1,9 @@
 # Proyecto intermedio robótica 2020-II
 ---
-#### Autor:
+#### Autores:
 - Leonardo Fabio Mercado Benítez.
+- Javier Andres Martinez Torres.
+- Adriana Mercedes Rivera Gonzalez
 
 
 ---
