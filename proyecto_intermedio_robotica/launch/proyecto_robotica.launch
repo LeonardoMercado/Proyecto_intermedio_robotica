@@ -7,14 +7,18 @@
 		<arg name="y" default="0.5"/>
 		<arg name="z" default="0"/>
           <arg name="yaw" default="-1.570796327"/>
-		<arg name="rqt" default="false"/>
-          
-		<param name="Objeto_description" command="$(find xacro)/xacro --inorder '$(find proyecto_intermedio_robotica)/urdf/Objeto.xacro'" /> 
-		<arg name="x1" default="0.499401"/>
-		<arg name="y1" default="0.284172"/>
-		<arg name="z1" default="0"/>
-		<!-- Spawn Robot Model -->
+		<arg name="rqt" default="false"/>		
 		
+		<param name="tornillo_description" command="$(find xacro)/xacro --inorder '$(find proyecto_intermedio_robotica)/urdf/tornillo.xacro'" />
+		<arg name="xt" default="0.499401"/>
+		<arg name="yt" default="0.284172"/>
+		<arg name="zt" default="0"/>
+
+		<param name="tuerca_description" command="$(find xacro)/xacro --inorder '$(find proyecto_intermedio_robotica)/urdf/tuerca.xacro'" />
+		<arg name="xtu" default="0.499401"/>
+		<arg name="ytu" default="0.284172"/>
+		<arg name="ztu" default="0.04"/>
+
           
 		<!-- Load controllers -->
          <rosparam command="load" file="$(find proyecto_intermedio_robotica)/config/joints_effort.yaml" />
@@ -45,8 +49,20 @@
 			  output="screen"
 		       args="-urdf -param robot_description 
 			  -model 4R_robot -x $(arg x) -y $(arg y) -z $(arg z) -Y $(arg yaw)"/>
-          <node name="Objeto_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" 
-                      args="-urdf -param Objeto_description -model Objeto -x $(arg x1) -y $(arg y1) -z $(arg z1)" />
+
+		<node name="tornillo_spawn" 
+			  pkg="gazebo_ros" 
+			  type="spawn_model" 
+			  output="screen"
+		       args="-urdf -param tornillo_description 
+			  -model tornillo -x $(arg xt) -y $(arg yt) -z $(arg zt)"/>
+
+		<node name="tuerca_spawn" 
+			  pkg="gazebo_ros" 
+			  type="spawn_model" 
+			  output="screen"
+		       args="-urdf -param tuerca_description 
+			  -model tuerca -x $(arg xtu) -y $(arg ytu) -z $(arg ztu)"/>
           
 
 		<!-- rqt -->

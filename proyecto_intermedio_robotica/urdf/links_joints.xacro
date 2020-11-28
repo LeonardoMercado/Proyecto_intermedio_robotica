@@ -67,9 +67,9 @@
       </visual>
     </link>
     <gazebo reference="${name}">
-      <mu1>10000.0</mu1>  
-      <mu2>10000.0</mu2>  
-      <minDepth>0.03</minDepth>  
+      <mu1>100.0</mu1>  
+      <mu2>100.0</mu2>  
+      <minDepth>0.003</minDepth>  
       <maxVel>0</maxVel>
         <!--<material>Gazebo/WhiteGlow</material>-->
         <material>Gazebo/BlackTransparent</material>
