@@ -16,17 +16,13 @@
          <geometry>
            <box size="0.03 0.03 0.05" />
          </geometry>
-       </collision>
-       <surface>
-          <friction>
-           <ode>
-            <mu>10</mu>
-            <mu2>10</mu2>
-           </ode>
-          </friction>
-        </surface>
+       </collision>       
      </link>
      <gazebo reference="my_box">
-       <material>Gazebo/Blue</material>
+      <mu1>10000.0</mu1>  
+      <mu2>10000.0</mu2>  
+      <minDepth>0.03</minDepth>  
+      <maxVel>0</maxVel>
+      <material>Gazebo/Blue</material>
      </gazebo>
 </robot>

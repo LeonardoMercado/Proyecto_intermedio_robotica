@@ -13,10 +13,10 @@
 	<transmission name="trans_${name}">
 	      <type>transmission_interface/SimpleTransmission</type>
 	      <joint name="${name}">
-		<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 	      </joint>
 	      <actuator name="motor_${name}">
-		<hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+		<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 		<mechanicalReduction>1</mechanicalReduction>
 	      </actuator>
 	    </transmission>
@@ -34,10 +34,10 @@
 <transmission name="trans_${name}">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${name}">
-  <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       </joint>
       <actuator name="motor_${name}">
-  <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
   <mechanicalReduction>1</mechanicalReduction>
       </actuator>
     </transmission>
@@ -54,7 +54,7 @@
         <origin rpy="${origin_rpy}" xyz="${origin_xyz}" />
         <geometry>
           <mesh filename="${meshfile}" scale="0.1 0.1 0.1"/>
-        </geometry>
+        </geometry>        
       </collision>
       <visual>
         <origin rpy="${origin_rpy}" xyz="${origin_xyz}" />
@@ -67,6 +67,10 @@
       </visual>
     </link>
     <gazebo reference="${name}">
+      <mu1>10000.0</mu1>  
+      <mu2>10000.0</mu2>  
+      <minDepth>0.03</minDepth>  
+      <maxVel>0</maxVel>
         <!--<material>Gazebo/WhiteGlow</material>-->
         <material>Gazebo/BlackTransparent</material>
     </gazebo>
@@ -94,6 +98,44 @@
           <color rgba="1.0 0.0 0.0 1.0"/>
         </material>
       </visual>
+    </link>
+    <gazebo reference="${name}">
+        <material>Gazebo/WhiteGlow</material>
+    </gazebo>
+ </xacro:macro>
+
+  <xacro:macro name="link_mesh_2" params="name origin_xyz origin_rpy meshfile mass ixx ixy ixz iyy iyz izz">
+    <link name="${name}">
+      <inertial>
+        <mass value="${mass}" />
+        <origin rpy="${origin_rpy}" xyz="${origin_xyz}" />
+        <inertia ixx="${ixx}" ixy="${ixy}" ixz="${ixz}" iyy="${iyy}" iyz="${iyz}" izz="${izz}" />
+      </inertial>
+      <collision>
+        <origin rpy="${origin_rpy}" xyz="${origin_xyz}" />
+        <geometry>
+          <mesh filename="${meshfile}" scale="1 1 1"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin rpy="${origin_rpy}" xyz="${origin_xyz}" />
+        <geometry>
+          <mesh filename="${meshfile}" scale="1 1 1"/>
+        </geometry>
+        <material name="red">
+          <color rgba="1.0 0.0 0.0 1.0"/>
+        </material>
+      </visual>
+      <surface>
+          <friction>
+           <ode>
+            <mu>1000</mu>
+            <mu2>1000</mu2>
+            <minDepth>0.003</minDepth>  
+            <maxVel>0</maxVel> 
+           </ode>
+          </friction>
+        </surface>
     </link>
     <gazebo reference="${name}">
         <material>Gazebo/WhiteGlow</material>
