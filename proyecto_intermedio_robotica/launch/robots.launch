@@ -1,0 +1,23 @@
+<launch>
+  <!-- No namespace here as we will share this description. 
+       Access with slash at the beginning -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find proyecto_intermedio_robotica)/urdf/4r_robot_gazebo.xacro'" />
+
+  <!-- BEGIN ROBOT 1-->
+  <group ns="robot_derecha">
+    <param name="tf_prefix" value="robot1_tf" />
+    <include file="$(find proyecto_intermedio_robotica)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x 0.5 -y 0.5 -z 0.0"/>
+      <arg name="robot_name"  value="Robot_derecha" />
+    </include>
+  </group>
+
+  <!-- BEGIN ROBOT 2-->
+  <group ns="robot_izquierda">
+    <param name="tf_prefix" value="robot2_tf" />
+    <include file="$(find proyecto_intermedio_robotica)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x 0.5 -y -0.5 -z 0.0"/>
+      <arg name="robot_name"  value="Robot_izquierda" />
+    </include>
+  </group>
+</launch>

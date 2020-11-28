@@ -7,7 +7,7 @@
 		<arg name="y" default="0.5"/>
 		<arg name="z" default="0"/>
           <arg name="yaw" default="-1.570796327"/>
-		<arg name="rqt" default="false"/>		
+		<arg name="rqt" default="false"/>
 		
 		<param name="tornillo_description" command="$(find xacro)/xacro --inorder '$(find proyecto_intermedio_robotica)/urdf/tornillo.xacro'" />
 		<arg name="xt" default="0.499401"/>

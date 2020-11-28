@@ -1,0 +1,16 @@
+<launch>
+  <param name="/use_sim_time" value="true" />
+  <arg name="rqt" default="false"/>
+
+  <!-- start world -->
+  <node name="gazebo" pkg="gazebo_ros" type="gazebo" 
+   args="$(find gazebo_ros)/launch/empty_world.launch" respawn="false" output="screen" />
+   
+
+  <!-- include our robots -->
+  <include file="$(find proyecto_intermedio_robotica)/launch/robots.launch"/>
+
+  <!-- rqt -->
+  <node if="$(arg rqt)" name="rqt_gui" pkg="rqt_gui" type="rqt_gui" />
+
+</launch>

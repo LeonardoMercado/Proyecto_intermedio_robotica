@@ -1,0 +1,28 @@
+<launch>
+    <arg name="robot_name"/>
+    <arg name="init_pose"/>
+
+    <node name="spawn_minibot_model" pkg="gazebo_ros" type="spawn_model"
+     args="$(arg init_pose) -urdf -param /robot_description -model $(arg robot_name)"
+     respawn="false" output="screen" />
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+     <!-- Load controllers -->
+     <rosparam command="load" file="$(find proyecto_intermedio_robotica)/config/joints_effort.yaml" />
+        
+	<!-- Controllers -->
+	<node name="controller_spawner" pkg="controller_manager" type="spawner"
+	    respawn="false" output="screen" 
+	    args="
+	    joint_state_controller
+	    joint1_position_controller
+	    joint2_position_controller
+	    joint3_position_controller
+	    joint4_position_controller
+	    gripper_position_controller
+	    --timeout 60">
+	</node>
+
+
+</launch>
