@@ -1,6 +1,6 @@
 <launch>
   <param name="/use_sim_time" value="true" />
-  <arg name="rqt" default="false"/>
+  <arg name="tornillo_tuerca" default="false"/>
 
   <!-- start world -->
   <node name="gazebo" pkg="gazebo_ros" type="gazebo" 
@@ -10,7 +10,34 @@
   <!-- include our robots -->
   <include file="$(find proyecto_intermedio_robotica)/launch/robots.launch"/>
 
-  <!-- rqt -->
-  <node if="$(arg rqt)" name="rqt_gui" pkg="rqt_gui" type="rqt_gui" />
+  <group if="$(arg tornillo_tuerca)">
+    <param name="tornillo_description" command="$(find xacro)/xacro --inorder '$(find proyecto_intermedio_robotica)/urdf/tornillo.xacro'" />
+    <arg name="xt" default="-0.103"/>
+    <arg name="yt" default="0.206"/>
+    <arg name="zt" default="0.0"/>
+
+    <param name="tuerca_description" command="$(find xacro)/xacro --inorder '$(find proyecto_intermedio_robotica)/urdf/tuerca.xacro'" />
+    <arg name="xtu" default="0.103"/>
+    <arg name="ytu" default="0.206"/>
+    <arg name="ztu" default="0.0"/>
+
+    <node name="tornillo_spawn" 
+          pkg="gazebo_ros" 
+          type="spawn_model" 
+          output="screen"
+            args="-urdf -param tornillo_description 
+          -model tornillo -x $(arg xt) -y $(arg yt) -z $(arg zt)"/>
+
+    <node name="tuerca_spawn" 
+        pkg="gazebo_ros" 
+        type="spawn_model" 
+        output="screen"
+          args="-urdf -param tuerca_description 
+        -model tuerca -x $(arg xtu) -y $(arg ytu) -z $(arg ztu)"/>    
+    <!-- rqt -->
+    <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" />
+  </group>
+
+  
 
 </launch>
