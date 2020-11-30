@@ -3,6 +3,7 @@
        Access with slash at the beginning -->
   <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find proyecto_intermedio_robotica)/urdf/4r_robot_gazebo.xacro'" />
 
+
   <!-- BEGIN ROBOT 1-->
   <group ns="robot_derecha">
     <param name="tf_prefix" value="robot1_tf" />
@@ -20,4 +21,7 @@
       <arg name="robot_name"  value="Robot_izquierda" />
     </include>
   </group>
+
+ 
+
 </launch>

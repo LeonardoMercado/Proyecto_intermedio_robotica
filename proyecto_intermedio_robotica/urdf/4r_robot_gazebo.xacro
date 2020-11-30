@@ -139,12 +139,14 @@
 
 
 
-     
+     <!-- 
      <xacro:create_noa name="NOA"
      origin_xyz="0.305 0 0"
      origin_rpy="0 1.5708 0" 
      parent="link_2"
      />
+     FIN ROBOT
+     -->
      
      
 

@@ -36,6 +36,20 @@
         -model tuerca -x $(arg xtu) -y $(arg ytu) -z $(arg ztu)"/>    
     <!-- rqt -->
     <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" />
+
+    <!-- RVIZ -->
+    <node name="rviz" pkg="rviz" type="rviz" args=" -d $(find proyecto_intermedio_robotica)/config_camara/config.rviz"/> 
+
+    <param name="camara_description" command="$(find xacro)/xacro --inorder '$(find proyecto_intermedio_robotica)/urdf/camara.xacro'" />
+    <arg name="xc" default="0.0"/>
+    <arg name="yc" default="0.0"/>
+    <arg name="zc" default="1.5"/>
+    <node name="camara_spawn" 
+        pkg="gazebo_ros" 
+        type="spawn_model" 
+        output="screen"
+          args="-urdf -param camara_description 
+        -model camara -x $(arg xc) -y $(arg yc) -z $(arg zc)"/>
   </group>
 
   
