@@ -34,7 +34,7 @@ robot.teach;
 %% Determinación del plano de trabajo del robot:
 close;
 clc;
-q = solucion([0.0 0.206 0.03 -90 0]);
+q = solucion([0.0 0.206 0.02 -90 0]);
 robot.plot(q);
 robot.teach;
 
@@ -68,6 +68,110 @@ legend('Robot_{izquierdo}','Robot_{derecho}');
 
 axis equal
 
+%%  Inicio del nodo ros
+rosinit;
+
+%% Publicadores a los controladores de las articulaciones del robot de la izquierda:
+
+publicador_robot_izquierda_joint_1 = rospublisher('/robot_izquierda/joint1_position_controller/command','std_msgs/Float64');
+pause(1);
+disp('Publicador del robot izquierdo de la articulación 1 creado...');
+
+publicador_robot_izquierda_joint_2 = rospublisher('/robot_izquierda/joint2_position_controller/command','std_msgs/Float64');
+pause(1);
+disp('Publicador del robot izquierdo de la articulación 2 creado...');
+
+publicador_robot_izquierda_joint_3 = rospublisher('/robot_izquierda/joint3_position_controller/command','std_msgs/Float64');
+pause(1);
+disp('Publicador del robot izquierdo de la articulación 3 creado...');
+
+publicador_robot_izquierda_joint_4 = rospublisher('/robot_izquierda/joint4_position_controller/command','std_msgs/Float64');
+pause(1);
+disp('Publicador del robot izquierdo de la articulación 4 creado...');
+
+publicador_robot_izquierda_gripper = rospublisher('/robot_izquierda/gripper_position_controller/command','std_msgs/Float64MultiArray');
+pause(1);
+disp('Publicador del gripper del robot izquierdo creado...');
+
+%% Creación del mensaje de articulaciones del robot de la izquierda:
+
+robot_izquierda_articulacion_1 = rosmessage(publicador_robot_izquierda_joint_1);
+robot_izquierda_articulacion_2 = rosmessage(publicador_robot_izquierda_joint_2);
+robot_izquierda_articulacion_3 = rosmessage(publicador_robot_izquierda_joint_3);
+robot_izquierda_articulacion_4 = rosmessage(publicador_robot_izquierda_joint_4);
+robot_izquierda_gripper = rosmessage(publicador_robot_izquierda_gripper);
+
+%% Configuración y envio de datos de las articulaciones del robot de la izquierda:
+
+robot_izquierda_articulacion_1.Data = deg2rad(0);
+robot_izquierda_articulacion_2.Data = deg2rad(90);
+robot_izquierda_articulacion_3.Data = deg2rad(0);
+robot_izquierda_articulacion_4.Data = deg2rad(90);
+cierre_gripper = 0;
+if cierre_gripper
+    robot_izquierda_gripper.Data = [0.01,0.01];
+else
+    robot_izquierda_gripper.Data = [0.0,0.0];
+end
+
+send(publicador_robot_izquierda_joint_1,robot_izquierda_articulacion_1);
+send(publicador_robot_izquierda_joint_2,robot_izquierda_articulacion_2);
+send(publicador_robot_izquierda_joint_3,robot_izquierda_articulacion_3);
+send(publicador_robot_izquierda_joint_4,robot_izquierda_articulacion_4);
+send(publicador_robot_izquierda_gripper,robot_izquierda_gripper);
+
+
+%% Publicadores a los controladores de las articulaciones del robot de la derecha:
+
+publicador_robot_derecha_joint_1 = rospublisher('/robot_derecha/joint1_position_controller/command','std_msgs/Float64');
+pause(1);
+disp('Publicador del robot derecha de la articulación 1 creado...');
+
+publicador_robot_derecha_joint_2 = rospublisher('/robot_derecha/joint2_position_controller/command','std_msgs/Float64');
+pause(1);
+disp('Publicador del robot derecha de la articulación 2 creado...');
+
+publicador_robot_derecha_joint_3 = rospublisher('/robot_derecha/joint3_position_controller/command','std_msgs/Float64');
+pause(1);
+disp('Publicador del robot derecha de la articulación 3 creado...');
+
+publicador_robot_derecha_joint_4 = rospublisher('/robot_derecha/joint4_position_controller/command','std_msgs/Float64');
+pause(1);
+disp('Publicador del robot derecha de la articulación 4 creado...');
+
+publicador_robot_derecha_gripper = rospublisher('/robot_derecha/gripper_position_controller/command','std_msgs/Float64MultiArray');
+pause(1);
+disp('Publicador del gripper del robot derecha creado...');
+
+%% Creación del mensaje de articulaciones del robot de la derecha:
+
+robot_derecha_articulacion_1 = rosmessage(publicador_robot_derecha_joint_1);
+robot_derecha_articulacion_2 = rosmessage(publicador_robot_derecha_joint_2);
+robot_derecha_articulacion_3 = rosmessage(publicador_robot_derecha_joint_3);
+robot_derecha_articulacion_4 = rosmessage(publicador_robot_derecha_joint_4);
+robot_derecha_gripper = rosmessage(publicador_robot_derecha_gripper);
+
+%% Configuración y envio de datos de las articulaciones del robot de la derecha:
+
+robot_derecha_articulacion_1.Data = deg2rad(0);
+robot_derecha_articulacion_2.Data = deg2rad(-90);
+robot_derecha_articulacion_3.Data = deg2rad(0);
+robot_derecha_articulacion_4.Data = deg2rad(-90);
+cierre_gripper = 0;
+if cierre_gripper
+    robot_derecha_gripper.Data = [0.01,0.01];
+else
+    robot_derecha_gripper.Data = [0.0,0.0];
+end
+
+send(publicador_robot_derecha_joint_1,robot_derecha_articulacion_1);
+send(publicador_robot_derecha_joint_2,robot_derecha_articulacion_2);
+send(publicador_robot_derecha_joint_3,robot_derecha_articulacion_3);
+send(publicador_robot_derecha_joint_4,robot_derecha_articulacion_4);
+send(publicador_robot_derecha_gripper,robot_derecha_gripper);
+
+%% 
+rosshutdown;
 
 
 
