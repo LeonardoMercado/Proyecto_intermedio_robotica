@@ -41,6 +41,7 @@
     <node name="rviz" pkg="rviz" type="rviz" args=" -d $(find proyecto_intermedio_robotica)/config_camara/config.rviz"/> 
     
   </group>
+  
   <param name="camara_description" command="$(find xacro)/xacro --inorder '$(find proyecto_intermedio_robotica)/urdf/camara.xacro'" />
     <arg name="xc" default="0.0"/>
     <arg name="yc" default="0.0"/>

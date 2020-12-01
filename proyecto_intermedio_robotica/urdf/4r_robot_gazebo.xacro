@@ -7,7 +7,7 @@
      <xacro:include filename="$(find proyecto_intermedio_robotica)/urdf/links_joints.xacro" />
      <xacro:include filename="$(find proyecto_intermedio_robotica)/urdf/robot_parameters.xacro" />
      <xacro:include filename="$(find proyecto_intermedio_robotica)/urdf/my_macros.xacro"/>
-     
+  
      <link name="world"/>  
 
      <joint name="fixed" type="fixed"> 
@@ -30,7 +30,7 @@
      axis_xyz="0 0 1"
      origin_rpy="0 0 -1.5708" origin_xyz="0 0 0.094375"
      parent="${link_00_name}" child="link_1"  
-     limit_e="100" limit_l="-3.14" limit_u="3.14" limit_v="0.5" 
+     limit_e="50" limit_l="-3.14" limit_u="3.14" limit_v="0.05" 
      />
 
      <xacro:m_link_mesh name="link_1"
@@ -48,7 +48,7 @@
      axis_xyz="0 0 1"
      origin_rpy="1.5708 -1.5708 1.5708" origin_xyz="0 0 0.0415"
      parent="link_1" child="link_2"
-     limit_e="100" limit_l="-3.14" limit_u="3.14" limit_v="0.5" 
+     limit_e="50" limit_l="-3.14" limit_u="3.14" limit_v="0.5" 
      />
 
 
@@ -67,7 +67,7 @@
      axis_xyz="0 0 1"
      origin_rpy="0 0 0" origin_xyz="0.107 0 0"
      parent="link_2" child="link_3"
-     limit_e="100" limit_l="-3.14" limit_u="3.14" limit_v="0.5" 
+     limit_e="50" limit_l="-3.14" limit_u="3.14" limit_v="0.5" 
      />
 
      <xacro:m_link_mesh name="link_3"
@@ -85,7 +85,7 @@
      axis_xyz="0 0 1"
      origin_rpy="0 0 0" origin_xyz="0.107 0 0"
      parent="link_3" child="link_4"
-     limit_e="100" limit_l="-3.14" limit_u="3.14" limit_v="0.5" 
+     limit_e="50" limit_l="-3.14" limit_u="3.14" limit_v="0.5" 
      />
 
 
@@ -104,7 +104,7 @@
      axis_xyz="0 0 1"
      origin_rpy="0 0 0" origin_xyz="0.088 0.0001 -0.04"
      parent="link_4" child="finger_1"
-     limit_e="10000" limit_l="0" limit_u="0.02" limit_v="0.5" 
+     limit_e="100" limit_l="0" limit_u="0.02" limit_v="0.05" 
      />
 
 
@@ -123,8 +123,8 @@
      axis_xyz="0 0 1"
      origin_rpy="3.1416 0 0" origin_xyz="0.088 -0.0001 0.04"
      parent="link_4" child="finger_2"
-     limit_e="10000" limit_l="0" limit_u="0.02" limit_v="0.5"
-     mimic_joint="gripper_1" m_multiplier="1" m_offset="0" 
+     limit_e="100" limit_l="0" limit_u="0.02" limit_v="0.05"
+     mimic_joint="gripper_1" m_multiplier="5" m_offset="0" 
      />
 
      <xacro:m_link_mesh name="finger_2"
