@@ -28,7 +28,7 @@ robot.tool = [0 0 1 l4;
               0 1 0 0;
               0 0 0 1];
 maximo = [-0.800 0.800 -0.800 0.800 0 0.800];
-pose_1 = [0 pi/4 -pi/2 -pi/4];
+pose_1 = [pi/2 pi/4 -pi/2 -pi/4];
 robot.plot(pose_1,'workspace', maximo,'noa','view',[30 30]);
 robot.teach;       
 %% Determinación del plano de trabajo del robot:
@@ -103,9 +103,9 @@ robot_izquierda_gripper = rosmessage(publicador_robot_izquierda_gripper);
 
 %% Configuración y envio de datos de las articulaciones del robot de la izquierda:
 
-robot_izquierda_articulacion_1.Data = deg2rad(0);
-robot_izquierda_articulacion_2.Data = deg2rad(90);
-robot_izquierda_articulacion_3.Data = deg2rad(0);
+robot_izquierda_articulacion_1.Data = deg2rad(180);
+robot_izquierda_articulacion_2.Data = deg2rad(-90);
+robot_izquierda_articulacion_3.Data = deg2rad(90);
 robot_izquierda_articulacion_4.Data = deg2rad(90);
 cierre_gripper = 0;
 if cierre_gripper
@@ -170,10 +170,16 @@ send(publicador_robot_derecha_joint_3,robot_derecha_articulacion_3);
 send(publicador_robot_derecha_joint_4,robot_derecha_articulacion_4);
 send(publicador_robot_derecha_gripper,robot_derecha_gripper);
 
-%% 
-rosshutdown;
+%% Suscriptor de las articulaciones del robot de la izquierda:
+
+suscriptor_R_Izquierdo = rossubscriber('/robot_izquierda/joint_states');
+pause(1);
 
 
+%% Verificación de la posición actual de las articulaciones:
+
+actual_configuracion_R_izquierdo = receive(suscriptor_R_Izquierdo,3);
+disp(actual_configuracion_R_izquierdo.Position);
 
 %% Módelo cinemático inverso del robot phanton X pincher 4R: 
 function q = solucion(data)
