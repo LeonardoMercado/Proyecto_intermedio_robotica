@@ -29,7 +29,8 @@ robot.tool = [0 0 1 l4;
               0 0 0 1];
 maximo = [-0.800 0.800 -0.800 0.800 0 0.800];
 pose_1 = [pi/2 pi/4 -pi/2 -pi/4];
-robot.plot(pose_1,'workspace', maximo,'noa','view',[30 30]);
+pose_2 = [0 -pi/2 0 -pi/2];
+robot.plot(pose_2,'workspace', maximo,'noa','view',[30 30]);
 robot.teach;       
 %% Determinación del plano de trabajo del robot:
 close;
@@ -180,6 +181,19 @@ pause(1);
 
 actual_configuracion_R_izquierdo = receive(suscriptor_R_Izquierdo,3);
 disp(actual_configuracion_R_izquierdo.Position);
+
+%% Verificación de la camara:
+
+imgsub = rossubscriber('/camera/image_data');
+img = receive(imgsub);
+figure
+imshow(readImage(img))
+tic
+while toc<60
+    img = receive(imgsub);
+    imshow(readImage(img));
+end
+
 
 %% Módelo cinemático inverso del robot phanton X pincher 4R: 
 function q = solucion(data)
