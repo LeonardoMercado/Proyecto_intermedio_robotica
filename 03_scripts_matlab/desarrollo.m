@@ -13,7 +13,7 @@ l1 = 0.135875;
 l2 = 0.107;
 l3 = 0.107;
 l4 = 0.091;
-%l4 = 0.066;
+%l4 = 0.108;
 
 
 L(1) = Link('revolute','alpha', 0,    'a',0,   'd',l1,  'offset', 0,   'modified', 'qlim',[-2*pi 2*pi]);
@@ -35,7 +35,7 @@ robot.teach;
 %% Determinación del plano de trabajo del robot:
 close;
 clc;
-q = solucion([0.0 0.206 0.02 -90 0]);
+q = solucion([0.05 0.15 0.1 -90 0]);
 robot.plot(q);
 robot.teach;
 
@@ -208,7 +208,40 @@ l3 = 0.107;
 l4 = 0.091;
 elbow = data(5); % 1 Para codo abajo, 0 para codo arriba.
 
+q = zeros(1,4);x = data(1);
+y = data(2);
+z = data(3);
+phi = deg2rad(data(4));
+l1 = 0.135875;
+l2 = 0.107;
+l3 = 0.107;
+l4 = 0.091;
+elbow = data(5); % 1 Para codo abajo, 0 para codo arriba.
+
 q = zeros(1,4);
+q(1) = atan2(y,x);
+x_0 = sqrt(x.^2 + y.^2) - l4 * cos(phi);
+z_0 = (z-l1) - l4 * sin(phi);
+
+num = x_0.^2 + z_0.^2 - l2.^2 - l3.^2;
+den = 2*l2*l3;
+D = num./den;
+flag = (D<=1);
+
+if flag
+    q(3) = atan2(-sqrt(1-D.^2),D);
+    if elbow
+        q(3) = atan2(sqrt(1-D.^2),D);
+    end
+    
+    q(2) = -pi/2 + (atan2(z_0,x_0) - atan2(l3*sin(q(3)), l2+l3*cos(q(3))));
+    q(4) = phi - pi/2 - q(2) - q(3);
+       
+    
+else
+    warning('No se hallo una solución real');
+    q = NaN(1,4);    
+end
 q(1) = atan2(y,x);
 x_0 = sqrt(x.^2 + y.^2) - l4 * cos(phi);
 z_0 = (z-l1) - l4 * sin(phi);
