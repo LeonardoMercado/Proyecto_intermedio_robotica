@@ -1,6 +1,8 @@
 <launch>
   <!-- No namespace here as we will share this description. 
        Access with slash at the beginning -->
+
+  
   <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find proyecto_intermedio_robotica)/urdf/4r_robot_gazebo.xacro'" />
 
 

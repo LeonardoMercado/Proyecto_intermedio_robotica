@@ -12,33 +12,131 @@
 
   <group if="$(arg tornillo_tuerca)">
     <param name="tornillo_description" command="$(find xacro)/xacro --inorder '$(find proyecto_intermedio_robotica)/urdf/tornillo.xacro'" />
-    <arg name="xt" default="-0.103"/>
-    <arg name="yt" default="0.206"/>
-    <arg name="zt" default="0.0"/>
+    <arg name="xt1" default="0.1"/>
+    <arg name="yt1" default="-0.1"/>
+    <arg name="zt1" default="0.0"/>
+
+    <arg name="xt2" default="0.1"/>
+    <arg name="yt2" default="-0.15"/>
+    <arg name="zt2" default="0.0"/>
+    
+    <arg name="xt3" default="0.2"/>
+    <arg name="yt3" default="-0.1"/>
+    <arg name="zt3" default="0.0"/>
+
+    <arg name="xt4" default="0.2"/>
+    <arg name="yt4" default="-0.15"/>
+    <arg name="zt4" default="0.0"/>
+
+    <arg name="xt5" default="0.1"/>
+    <arg name="yt5" default="-0.2"/>
+    <arg name="zt5" default="0.0"/>
 
     <param name="tuerca_description" command="$(find xacro)/xacro --inorder '$(find proyecto_intermedio_robotica)/urdf/tuerca.xacro'" />
-    <arg name="xtu" default="0.103"/>
-    <arg name="ytu" default="0.206"/>
-    <arg name="ztu" default="0.0"/>
+    <arg name="xtu1" default="-0.1"/>
+    <arg name="ytu1" default="-0.1"/>
+    <arg name="ztu1" default="0.0"/>
 
-    <node name="tornillo_spawn" 
+    <arg name="xtu2" default="-0.1"/>
+    <arg name="ytu2" default="-0.15"/>
+    <arg name="ztu2" default="0.0"/>
+
+    <arg name="xtu3" default="-0.2"/>
+    <arg name="ytu3" default="-0.1"/>
+    <arg name="ztu3" default="0.0"/>
+    
+    <arg name="xtu4" default="-0.2"/>
+    <arg name="ytu4" default="-0.15"/>
+    <arg name="ztu4" default="0.0"/>
+
+    <arg name="xtu5" default="-0.1"/>
+    <arg name="ytu5" default="-0.2"/>
+    <arg name="ztu5" default="0.0"/>
+
+    <node name="tornillo_spawn_1" 
           pkg="gazebo_ros" 
           type="spawn_model" 
           output="screen"
             args="-urdf -param tornillo_description 
-          -model tornillo -x $(arg xt) -y $(arg yt) -z $(arg zt)"/>
+          -model tornillo_1 -x $(arg xt1) -y $(arg yt1) -z $(arg zt1)"/>
 
-    <node name="tuerca_spawn" 
+    <node name="tornillo_spawn_2" 
+          pkg="gazebo_ros" 
+          type="spawn_model" 
+          output="screen"
+            args="-urdf -param tornillo_description 
+          -model tornillo_2 -x $(arg xt2) -y $(arg yt2) -z $(arg zt2)"/>
+
+    <node name="tornillo_spawn_3" 
+          pkg="gazebo_ros" 
+          type="spawn_model" 
+          output="screen"
+            args="-urdf -param tornillo_description 
+          -model tornillo_3 -x $(arg xt3) -y $(arg yt3) -z $(arg zt3)"/>
+
+    <node name="tornillo_spawn_4" 
+          pkg="gazebo_ros" 
+          type="spawn_model" 
+          output="screen"
+            args="-urdf -param tornillo_description 
+          -model tornillo_4 -x $(arg xt4) -y $(arg yt4) -z $(arg zt4)"/>
+
+    <node name="tornillo_spawn_5" 
+          pkg="gazebo_ros" 
+          type="spawn_model" 
+          output="screen"
+            args="-urdf -param tornillo_description 
+          -model tornillo_5 -x $(arg xt5) -y $(arg yt5) -z $(arg zt5)"/>
+
+
+
+
+
+
+
+
+    <node name="tuerca_spawn_1" 
         pkg="gazebo_ros" 
         type="spawn_model" 
         output="screen"
           args="-urdf -param tuerca_description 
-        -model tuerca -x $(arg xtu) -y $(arg ytu) -z $(arg ztu)"/>    
-    <!-- rqt -->
+        -model tuerca_1 -x $(arg xtu1) -y $(arg ytu1) -z $(arg ztu1)"/>
+
+    <node name="tuerca_spawn_2" 
+        pkg="gazebo_ros" 
+        type="spawn_model" 
+        output="screen"
+          args="-urdf -param tuerca_description 
+        -model tuerca_2 -x $(arg xtu2) -y $(arg ytu2) -z $(arg ztu2)"/>
+
+    <node name="tuerca_spawn_3" 
+        pkg="gazebo_ros" 
+        type="spawn_model" 
+        output="screen"
+          args="-urdf -param tuerca_description 
+        -model tuerca_3 -x $(arg xtu3) -y $(arg ytu3) -z $(arg ztu3)"/>
+
+    <node name="tuerca_spawn_4" 
+        pkg="gazebo_ros" 
+        type="spawn_model" 
+        output="screen"
+          args="-urdf -param tuerca_description 
+        -model tuerca_4 -x $(arg xtu4) -y $(arg ytu4) -z $(arg ztu4)"/>
+
+    <node name="tuerca_spawn_5" 
+        pkg="gazebo_ros" 
+        type="spawn_model" 
+        output="screen"
+          args="-urdf -param tuerca_description 
+        -model tuerca_5 -x $(arg xtu5) -y $(arg ytu5) -z $(arg ztu5)"/>
+
+    <!--        
+    
     <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" />
 
-    <!-- RVIZ -->
+    
     <node name="rviz" pkg="rviz" type="rviz" args=" -d $(find proyecto_intermedio_robotica)/config_camara/config.rviz"/> 
+    -->
     
   </group>
   
