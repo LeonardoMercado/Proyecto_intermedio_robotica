@@ -30,7 +30,7 @@
      axis_xyz="0 0 1"
      origin_rpy="0 0 -1.5708" origin_xyz="0 0 0.094375"
      parent="${link_00_name}" child="link_1"  
-     limit_e="50" limit_l="-3.14" limit_u="3.14" limit_v="0.5" 
+     limit_e="50" limit_l="-3.14" limit_u="3.14" limit_v="5" 
      />
 
      <xacro:m_link_mesh name="link_1"
@@ -48,7 +48,7 @@
      axis_xyz="0 0 1"
      origin_rpy="1.5708 -1.5708 1.5708" origin_xyz="0 0 0.0415"
      parent="link_1" child="link_2"
-     limit_e="50" limit_l="-3.14" limit_u="3.14" limit_v="0.5" 
+     limit_e="50" limit_l="-3.14" limit_u="3.14" limit_v="5" 
      />
 
 
@@ -67,7 +67,7 @@
      axis_xyz="0 0 1"
      origin_rpy="0 0 0" origin_xyz="0.107 0 0"
      parent="link_2" child="link_3"
-     limit_e="50" limit_l="-3.14" limit_u="3.14" limit_v="0.5" 
+     limit_e="50" limit_l="-3.14" limit_u="3.14" limit_v="5" 
      />
 
      <xacro:m_link_mesh name="link_3"
@@ -85,7 +85,7 @@
      axis_xyz="0 0 1"
      origin_rpy="0 0 0" origin_xyz="0.107 0 0"
      parent="link_3" child="link_4"
-     limit_e="50" limit_l="-3.14" limit_u="3.14" limit_v="0.5" 
+     limit_e="50" limit_l="-3.14" limit_u="3.14" limit_v="5" 
      />
 
 
@@ -99,7 +99,7 @@
      izz="0.00002116"	
      />
 
-     <xacro:m_joint name="gripper_1" 
+     <xacro:m_joint_effort name="gripper_1" 
      type="prismatic"
      axis_xyz="0 0 1"
      origin_rpy="0 0 0" origin_xyz="0.088 0.0001 -0.04"
