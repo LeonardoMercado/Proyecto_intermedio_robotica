@@ -8,6 +8,10 @@
 
 ---
 
-[wiki](http://proyecto-intermedio-robotica.wikidot.com/) del proyecto.
+
+### ¿Cómo lanzar el proyecto?
+
+Usar el comando:
+	>`roslaunch proyecto_intermedio_robotica proyecto.launch tornillo_tuerca:=true`
 
 [wiki](http://proyectointerobotica.wikidot.com/main:layout) del proyecto.

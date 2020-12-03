@@ -10,7 +10,7 @@
       <collision>
         <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
         <geometry>
-          <mesh filename="package://proyecto_intermedio_robotica/meshes/tornillo_colision.stl" scale="0.01 0.01 0.01"/>
+          <mesh filename="package://proyecto_intermedio_robotica/meshes/tornillo_colision_2.stl" scale="0.01 0.01 0.01"/>
         </geometry>        
       </collision>
       <visual>
