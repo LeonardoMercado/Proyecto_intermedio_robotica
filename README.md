@@ -9,4 +9,4 @@
 ---
 
 [wiki](http://proyecto-intermedio-robotica.wikidot.com/) del proyecto.
-[wiki](http://aplicacionpickandplace.wikidot.com) del proyecto.
+[wiki](http://aplicacionpickandplace.wikidot.com/main:layout) del proyecto.
