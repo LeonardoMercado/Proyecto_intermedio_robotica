@@ -21,16 +21,20 @@
     <arg name="zt2" default="0.0"/>
     
     <arg name="xt3" default="0.2"/>
-    <arg name="yt3" default="-0.1"/>
+    <arg name="yt3" default="-0.15"/>
     <arg name="zt3" default="0.0"/>
 
-    <arg name="xt4" default="0.2"/>
+    <arg name="xt4" default="0.25"/>
     <arg name="yt4" default="-0.15"/>
     <arg name="zt4" default="0.0"/>
 
-    <arg name="xt5" default="0.1"/>
-    <arg name="yt5" default="-0.2"/>
+    <arg name="xt5" default="0.15"/>
+    <arg name="yt5" default="-0.15"/>
     <arg name="zt5" default="0.0"/>
+
+    <arg name="xt6" default="0.15"/>
+    <arg name="yt6" default="-0.15"/>
+    <arg name="zt6" default="0.0"/>
 
     <param name="tuerca_description" command="$(find xacro)/xacro --inorder '$(find proyecto_intermedio_robotica)/urdf/tuerca.xacro'" />
     <arg name="xtu1" default="-0.1"/>
@@ -42,15 +46,15 @@
     <arg name="ztu2" default="0.0"/>
 
     <arg name="xtu3" default="-0.2"/>
-    <arg name="ytu3" default="-0.1"/>
+    <arg name="ytu3" default="-0.15"/>
     <arg name="ztu3" default="0.0"/>
     
-    <arg name="xtu4" default="-0.2"/>
+    <arg name="xtu4" default="-0.25"/>
     <arg name="ytu4" default="-0.15"/>
     <arg name="ztu4" default="0.0"/>
 
-    <arg name="xtu5" default="-0.1"/>
-    <arg name="ytu5" default="-0.2"/>
+    <arg name="xtu5" default="-0.15"/>
+    <arg name="ytu5" default="-0.15"/>
     <arg name="ztu5" default="0.0"/>
 
     <node name="tornillo_spawn_1" 
