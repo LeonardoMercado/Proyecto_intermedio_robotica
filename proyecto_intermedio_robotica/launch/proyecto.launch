@@ -88,13 +88,6 @@
             args="-urdf -param tornillo_description 
           -model tornillo_5 -x $(arg xt5) -y $(arg yt5) -z $(arg zt5)"/>
 
-
-
-
-
-
-
-
     <node name="tuerca_spawn_1" 
         pkg="gazebo_ros" 
         type="spawn_model" 
@@ -129,6 +122,7 @@
         output="screen"
           args="-urdf -param tuerca_description 
         -model tuerca_5 -x $(arg xtu5) -y $(arg ytu5) -z $(arg ztu5)"/>
+  
 
     <!--        
     
