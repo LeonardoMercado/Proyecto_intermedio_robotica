@@ -10,7 +10,7 @@
       <collision>
         <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
         <geometry>
-          <mesh filename="package://proyecto_intermedio_robotica/meshes/tuerca_colision_2.stl" scale="0.01 0.01 0.01"/>
+          <mesh filename="package://proyecto_intermedio_robotica/meshes/tuerca_colision.stl" scale="0.01 0.01 0.01"/>
         </geometry>        
       </collision>
       <visual>
@@ -28,7 +28,8 @@
       <mu2>100.0</mu2>  
       <minDepth>0.003</minDepth>  
       <maxVel>0</maxVel>
-        <material>Gazebo/Blue</material>
+        <material>Gazebo/<color rgba="0.0 1.0 0.0 0.0"/>
+        </material>
     </gazebo>
  
      

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<robot name="cubo2_robot">
+     
+     <link name="cubo2">
+      <inertial>
+        <mass value="0.0567" />
+        <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+        <inertia ixx="0.0193" ixy="0.0" ixz="0.0" iyy="0.0193" iyz="0.0" izz="0.0237" />
+      </inertial>
+      <collision>
+        <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://proyecto_intermedio_robotica/meshes/Cubitofake.stl" scale="0.01 0.01 0.01"/>
+        </geometry>        
+      </collision>
+      <visual>
+        <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://proyecto_intermedio_robotica/meshes/Cubitofake.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+        <material name="red">
+          <color rgba="1.0 0.0 0.0 1.0"/>
+        </material>
+      </visual>
+    </link>
+    <gazebo reference="cubo2">
+      <mu1>10.0</mu1>  
+      <mu2>10.0</mu2>  
+      <minDepth>0.003</minDepth>  
+      <maxVel>0</maxVel>
+        <material>Gazebo/Blue</material>
+    </gazebo>
+ 
+     
+</robot>
