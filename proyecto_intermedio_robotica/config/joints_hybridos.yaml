@@ -21,6 +21,6 @@ gripper_position_controller:
    - gripper_1 
    - gripper_2
   gripper_1:
-    pid: {p: 10000.0, i: 0.01, d: 0.001}  
+    pid: {p: 1000.0, i: 0.01, d: 0.001}  
   gripper_2:
-    pid: {p: 10000.0, i: 0.01, d: 0.001}
+    pid: {p: 1000.0, i: 0.01, d: 0.001}

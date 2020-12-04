@@ -9,7 +9,7 @@
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
      <!-- Load controllers -->
-     <rosparam command="load" file="$(find proyecto_intermedio_robotica)/config/joints _hybridos.yaml" />
+     <rosparam command="load" file="$(find proyecto_intermedio_robotica)/config/joints_effort.yaml" />
         
 	<!-- Controllers -->
 	<node name="controller_spawner" pkg="controller_manager" type="spawner"
