@@ -58,7 +58,7 @@
     <arg name="ztu5" default="0.0"/>
 
     <arg name="xtu6" default="-0.3"/>
-    <arg name="ytu6" default="0.0"/>
+    <arg name="ytu6" default="-0.001"/>
     <arg name="ztu6" default="0.0"/>
 
     <node name="tornillo_spawn_1" 

@@ -5,7 +5,7 @@
 %%  Montaje del robot y validación del modelo:
 clc;
 clear;
-close all;
+close all; 
 
 syms q1 q2 q3 q4
 
