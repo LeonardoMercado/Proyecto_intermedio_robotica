@@ -35,9 +35,16 @@ robot.teach;
 %% Determinación del plano de trabajo del robot:
 close;
 clc;
-q = solucion([0.05 0.15 0.1 -90 0]);
+q = solucion([0.0 0.216 0.0 0 0]);
 robot.plot(q);
 robot.teach;
+%% 
+q1 = deg2rad(-128);
+q2 = deg2rad(-64.29);
+q3 = deg2rad(-21.08);
+q4 = deg2rad(-94.65);
+robot.fkine([q1 q2 q3 q4])
+
 
 %% Graficas del plano de trabajo del robot:
 r = 0.206;
@@ -47,10 +54,10 @@ n = 1000;
 
 t = linspace(0,2*pi,n);
 
-x_d = -0.103 + r*sin(t);
+x_d = -0.125 + r*sin(t);
 y_d = 0 + r*cos(t);
 
-x_i = 0.103 + r*sin(t);
+x_i = 0.125 + r*sin(t);
 y_i = 0 + r*cos(t);
 
 
@@ -58,8 +65,8 @@ line(x_d,y_d,'Color','red','LineWidth',1.5)
 line(x_i,y_i,'Color','blue','LineWidth',1.5)
 grid on;
 hold on;
-plot(-0.0515,0,'r*');
-plot(0.0515,0,'b*');
+plot(-0.125,0,'r*');
+plot(0.125,0,'b*');
 
 title('Ubicación de los robots en función de su alcanze máximo','FontSize',14);
 xlabel('Distancia [m]','FontSize',12);
@@ -201,7 +208,7 @@ delete_service = rossvcclient('/gazebo/delete_model');
 mensaje_delete = rosmessage(delete_service);
 
 %% enviando en delte model
-mensaje_delete.ModelName = 'tornillo_1';
+mensaje_delete.ModelName = 'tuerca_1';
 envio_delte = call(delete_service,mensaje_delete,'Timeout',3);
 
 %%

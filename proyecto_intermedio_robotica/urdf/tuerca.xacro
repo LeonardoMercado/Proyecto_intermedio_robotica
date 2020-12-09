@@ -28,7 +28,7 @@
       <mu2>100.0</mu2>  
       <minDepth>0.003</minDepth>  
       <maxVel>0</maxVel>
-        <material>Gazebo/Blue</material>
+        <material>Gazebo/Red</material>
     </gazebo>
  
      
