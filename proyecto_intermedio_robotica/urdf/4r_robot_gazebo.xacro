@@ -108,7 +108,7 @@
      />
 
 
-     <xacro:m_link_mesh name="finger_1"
+     <xacro:m_link_mesh_2 name="finger_1"
      origin_xyz="0 0 0"
      origin_rpy="0 0 0" 
      meshfile="package://proyecto_intermedio_robotica/meshes/PincheFinger.stl"
@@ -127,7 +127,7 @@
      mimic_joint="gripper_1" m_multiplier="5" m_offset="0" 
      />
 
-     <xacro:m_link_mesh name="finger_2"
+     <xacro:m_link_mesh_2 name="finger_2"
      origin_xyz="0 0 0"
      origin_rpy="0 0 0" 
      meshfile="package://proyecto_intermedio_robotica/meshes/PincheFinger.stl"

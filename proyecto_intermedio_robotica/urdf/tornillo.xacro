@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot name="tornillo_robot">
      
-     <link name="tornillo">
+     <link name="tornillo">     
       <inertial>
         <mass value="0.01895747" />
         <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
@@ -24,6 +24,7 @@
       </visual>
     </link>
     <gazebo reference="tornillo">
+      <turnGravityOff>true</turnGravityOff>
       <mu1>100.0</mu1>  
       <mu2>100.0</mu2>  
       <minDepth>0.003</minDepth>  

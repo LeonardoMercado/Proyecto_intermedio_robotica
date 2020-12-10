@@ -212,7 +212,7 @@ mensaje_delete.ModelName = 'tuerca_1';
 envio_delte = call(delete_service,mensaje_delete,'Timeout',3);
 
 %%
-mensaje_delete.ModelName = 'tornillo_5';
+mensaje_delete.ModelName = 'tornillo_1';
 envio_delte = call(delete_service,mensaje_delete,'Timeout',3);
 
 %% Probando el set_model_propetis service de gazebo desde matlab:
@@ -229,10 +229,21 @@ mensaje_seteo.ModelState.Pose.Position.Z = 0;
 envio_seteo = call(set_service,mensaje_seteo);
 
 %% Problando los servicios de las propiedades fisicas:
-fisica_service = rossvcclient('/gazebo/apply_body_wrench');
+fisica_service = rossvcclient('/gazebo/set_physics_properties');
 mensaje_seteo_fisico = rosmessage(fisica_service);
 
-%% enviando configuración
+%% enviando configuración de fisica
+mensaje_seteo_fisico.Gravity.X = 0;
+mensaje_seteo_fisico.Gravity.Y = 0;
+mensaje_seteo_fisico.Gravity.Z = -9.81;
+enviar_seteo_fisico = call(fisica_service,mensaje_seteo_fisico);
+
+%% Pausar la fisica
+fisica_pause_service = rossvcclient('/gazebo/pause_physics');
+mensaje_pausa_fisica = rosmessage(fisica_pause_service);
+%%
+fisica_despausada_service = rossvcclient('/gazebo/unpause_physics');
+mensaje_despausa_fisica = rosmessage(fisica_despausada_service);
 
 %% Módelo cinemático inverso del robot phanton X pincher 4R: 
 function q = solucion(data)
