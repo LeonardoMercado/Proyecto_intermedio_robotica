@@ -209,7 +209,7 @@
   <param name="camara_description" command="$(find xacro)/xacro --inorder '$(find proyecto_intermedio_robotica)/urdf/camara.xacro'" />
     <arg name="xc" default="0.0"/>
     <arg name="yc" default="0.0"/>
-    <arg name="zc" default="1.5"/>
+    <arg name="zc" default="1.2"/>
     <node name="camara_spawn" 
         pkg="gazebo_ros" 
         type="spawn_model" 

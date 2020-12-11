@@ -24,6 +24,7 @@
       </visual>
     </link>
     <gazebo reference="tuerca">
+      <turnGravityOff>true</turnGravityOff>
       <mu1>100.0</mu1>  
       <mu2>100.0</mu2>  
       <minDepth>0.003</minDepth>  

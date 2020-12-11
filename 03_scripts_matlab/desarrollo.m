@@ -196,7 +196,7 @@ img = receive(imgsub);
 figure
 imshow(readImage(img))
 tic
-while toc<60
+while toc<6
     img = receive(imgsub);
     imshow(readImage(img));
 end
