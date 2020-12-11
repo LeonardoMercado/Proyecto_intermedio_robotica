@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="595943992" file="/home/leonardo/Documentos/02_Robotica/04_Proyecto_intermedio/Proyecto_intermedio_robotica/04_HMI/APP_Proyecto_robotica.prj" location="/home/leonardo/Documentos/02_Robotica/04_Proyecto_intermedio/Proyecto_intermedio_robotica/04_HMI" name="APP_Proyecto_robotica" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="2321828267" file="/home/leonardo/Documentos/02_Robotica/04_Proyecto_intermedio/Proyecto_intermedio_robotica/04_HMI/APP_Proyecto_robotica.prj" location="/home/leonardo/Documentos/02_Robotica/04_Proyecto_intermedio/Proyecto_intermedio_robotica/04_HMI" name="APP_Proyecto_robotica" target="target.mlapps" target-name="Package App">
     <param.appname>APP_Proyecto_robotica</param.appname>
     <param.authnamewatermark>Leonardo Fabio Mercado Benítez</param.authnamewatermark>
     <param.email>lfmercadobe@unal.edu.co</param.email>
@@ -12,7 +12,7 @@
     </param.icons>
     <param.summary>Aplicación que controla dos robots Phantom-X Pincher virtuales simulados en Gazebo.</param.summary>
     <param.description>Aplicación desarrollada para el proyecto intermedio del curso de robótica 2020-II de la Universidad Nacional de Colombia sede Bogotá.</param.description>
-    <param.screenshot>/tmp/tp9d0c6bd2_6487_48ef_beb5_41115ef7dcf2.png</param.screenshot>
+    <param.screenshot>/tmp/tpbdab0d6c_df6e_497f_9196_dd0dd81f2f32.png</param.screenshot>
     <param.version>1.0</param.version>
     <param.products.name />
     <param.products.id />

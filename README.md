@@ -1,20 +1,23 @@
 # Proyecto intermedio robótica 2020-II
 ---
-#### Autores:
+#### Autor:
 - Leonardo Fabio Mercado Benítez.
-- Javier Andres Martinez Torres.
-- Adriana Mercedes Rivera Gonzalez
-
-
 ---
-
 
 ### ¿Cómo lanzar el proyecto?
-Usar el comando:
+-1 Instalar la [aplicación](../04_HMI/APP_Proyecto_robotica.mlappinstall) de Matlab para el control de los robots.
+
+-2 En una terminal usar el comando:
 	`roslaunch proyecto_intermedio_robotica proyecto.launch tornillo_tuerca:=true`
+![](https://i.imgur.com/C7YVzpb.png)
+![](https://i.imgur.com/kDo0LaS.png)
+
+
+-3 Lanzar la aplicación
 	
-![](https://i.imgur.com/LzumlKZ.png)
-![](https://i.imgur.com/v3xJV8T.png)
+![](https://i.imgur.com/oOyi5Pp.png)
+
+
 
 ---
-[wiki](http://proyectointerobotica.wikidot.com/main:layout) del proyecto.
+

@@ -30,12 +30,12 @@ robot.tool = [0 0 1 l4;
 maximo = [-0.800 0.800 -0.800 0.800 0 0.800];
 pose_1 = [pi/2 pi/4 -pi/2 -pi/4];
 pose_2 = [0 -pi/2 0 -pi/2];
-robot.plot(pose_2,'workspace', maximo,'noa','view',[30 30]);
+robot.plot(pose_1,'workspace', maximo,'noa','view',[30 30]);
 robot.teach;       
 %% Determinación del plano de trabajo del robot:
 close;
 clc;
-q = solucion([0.0 0.216 0.0 0 0]);
+q = solucion([0.0 0.256 0.0 0.0 0]);
 robot.plot(q);
 robot.teach;
 %% 
@@ -47,6 +47,7 @@ robot.fkine([q1 q2 q3 q4])
 
 
 %% Graficas del plano de trabajo del robot:
+
 r = 0.206;
 
 n = 1000;
@@ -68,13 +69,31 @@ hold on;
 plot(-0.125,0,'r*');
 plot(0.125,0,'b*');
 
-title('Ubicación de los robots en función de su alcanze máximo','FontSize',14);
+title('Ubicación de los robots','FontSize',14);
 xlabel('Distancia [m]','FontSize',12);
 ylabel('Distancia [m]','FontSize',12);
 
 legend('Robot_{izquierdo}','Robot_{derecho}');
 
 axis equal
+
+%% 
+
+
+r = 0.256;
+
+n = 1000;
+
+
+t = linspace(0,2*pi,n);
+
+x_d = 0 + r*sin(t);
+y_d = 0 + r*cos(t);
+
+
+line(x_d,y_d,'Color','red','LineWidth',1.5)
+
+
 
 %%  Inicio del nodo ros
 rosinit;
