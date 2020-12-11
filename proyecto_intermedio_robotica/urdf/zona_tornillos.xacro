@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<robot name="tornillos_limit">     
+     <link name="tornillos">
+        <inertial>
+          <origin xyz="0 0 0" />
+          <mass value="0.001" />
+          <inertia  ixx="0.000001" ixy="0.0"  ixz="0.0"  iyy="0.000001"  iyz="0.0"  izz="0.000001" />
+        </inertial>
+        <collision>
+        <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://proyecto_intermedio_robotica/meshes/zona_tuercas.stl" scale="1.0 1.0 1.0"/>
+        </geometry>        
+      </collision>
+      <visual>
+        <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://proyecto_intermedio_robotica/meshes/zona_tuercas.stl" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="red">
+          <color rgba="1.0 0.0 0.0 1.0"/>
+        </material>
+      </visual>
+     </link>
+     <gazebo reference="tornillos">
+       <turnGravityOff>true</turnGravityOff>
+       <material>Gazebo/BlueTransparent</material>
+     </gazebo>
+</robot>

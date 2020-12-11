@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<robot name="peligro_limit">     
+     <link name="peligro">
+        <inertial>
+          <origin xyz="0 0 0" />
+          <mass value="0.001" />
+          <inertia  ixx="0.000001" ixy="0.0"  ixz="0.0"  iyy="0.000001"  iyz="0.0"  izz="0.000001" />
+        </inertial>
+        <collision>
+        <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://proyecto_intermedio_robotica/meshes/peligro.stl" scale="0.03 0.03 0.03"/>
+        </geometry>        
+      </collision>
+      <visual>
+        <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://proyecto_intermedio_robotica/meshes/peligro.stl" scale="0.03 0.03 0.03"/>
+        </geometry>
+        <material name="red">
+          <color rgba="1.0 0.0 0.0 1.0"/>
+        </material>
+      </visual>
+     </link>
+     <gazebo reference="peligro">
+       <turnGravityOff>true</turnGravityOff>
+       <material>Gazebo/Orange</material>
+     </gazebo>
+</robot>

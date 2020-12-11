@@ -61,6 +61,26 @@
     <arg name="ytu6" default="0.0"/>
     <arg name="ztu6" default="0.0"/>
 
+    <param name="peligro_description" command="$(find xacro)/xacro --inorder '$(find proyecto_intermedio_robotica)/urdf/peligro.xacro'" />
+    <arg name="xp" default="0.0"/>
+    <arg name="yp" default="0.0"/>
+    <arg name="zp" default="0.0"/>
+
+    <param name="zona_tornillos_description" command="$(find xacro)/xacro --inorder '$(find proyecto_intermedio_robotica)/urdf/zona_tornillos.xacro'" />
+    <arg name="xzt" default="0.0"/>
+    <arg name="yzt" default="0.05"/>
+    <arg name="zzt" default="0.0"/>
+
+    <param name="zona_tuercas_description" command="$(find xacro)/xacro --inorder '$(find proyecto_intermedio_robotica)/urdf/zona_tuercas.xacro'" />
+    <arg name="xztuer" default="-0.35"/>
+    <arg name="yztuer" default="0.05"/>
+    <arg name="zztuer" default="0.0"/>
+
+    <param name="ensamble_description" command="$(find xacro)/xacro --inorder '$(find proyecto_intermedio_robotica)/urdf/zona_ensamble.xacro'" />
+    <arg name="xnsmbl" default="0.0"/>
+    <arg name="ynsmbl" default="0.16"/>
+    <arg name="znsmbl" default="0.0"/>
+
     <node name="tornillo_spawn_1" 
           pkg="gazebo_ros" 
           type="spawn_model" 
@@ -144,6 +164,36 @@
         output="screen"
           args="-urdf -param tuerca_description 
         -model tuerca_6 -x $(arg xtu6) -y $(arg ytu6) -z $(arg ztu6)"/>
+
+    <node name="peligro_spawn" 
+        pkg="gazebo_ros" 
+        type="spawn_model" 
+        output="screen"
+          args="-urdf -param peligro_description 
+        -model peligro -x $(arg xp) -y $(arg yp) -z $(arg zp)"/>  
+    
+    <node name="zona_tornillos_spawn" 
+        pkg="gazebo_ros" 
+        type="spawn_model" 
+        output="screen"
+          args="-urdf -param zona_tornillos_description 
+        -model zona_tornillos -x $(arg xzt) -y $(arg yzt) -z $(arg zzt)"/>  
+
+    <node name="zona_tuercas_spawn" 
+        pkg="gazebo_ros" 
+        type="spawn_model" 
+        output="screen"
+          args="-urdf -param zona_tuercas_description 
+        -model zona_tuercas -x $(arg xztuer) -y $(arg yztuer) -z $(arg zztuer)"/>
+    
+    <node name="zona_ensamble_spawn" 
+        pkg="gazebo_ros" 
+        type="spawn_model" 
+        output="screen"
+          args="-urdf -param ensamble_description 
+        -model zona_ensamble -x $(arg xnsmbl) -y $(arg ynsmbl) -z $(arg znsmbl)"/>  
+
+        
   
 
     <!--        
