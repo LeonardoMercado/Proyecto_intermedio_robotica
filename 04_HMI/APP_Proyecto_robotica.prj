@@ -1,0 +1,81 @@
+<deployment-project plugin="plugin.apptool" plugin-version="1.0">
+  <configuration build-checksum="2321828267" file="/home/leonardo/Documentos/02_Robotica/04_Proyecto_intermedio/Proyecto_intermedio_robotica/04_HMI/APP_Proyecto_robotica.prj" location="/home/leonardo/Documentos/02_Robotica/04_Proyecto_intermedio/Proyecto_intermedio_robotica/04_HMI" name="APP_Proyecto_robotica" target="target.mlapps" target-name="Package App">
+    <param.appname>APP_Proyecto_robotica</param.appname>
+    <param.authnamewatermark>Leonardo Fabio Mercado Benítez</param.authnamewatermark>
+    <param.email>lfmercadobe@unal.edu.co</param.email>
+    <param.company>Universidad Nacional de Colombia</param.company>
+    <param.icon>${PROJECT_ROOT}/APP_Proyecto_robotica_resources/icon_24.png</param.icon>
+    <param.icons>
+      <file>${PROJECT_ROOT}/APP_Proyecto_robotica_resources/icon_48.png</file>
+      <file>${PROJECT_ROOT}/APP_Proyecto_robotica_resources/icon_24.png</file>
+      <file>${PROJECT_ROOT}/APP_Proyecto_robotica_resources/icon_16.png</file>
+    </param.icons>
+    <param.summary>Aplicación que controla dos robots Phantom-X Pincher virtuales simulados en Gazebo.</param.summary>
+    <param.description>Aplicación desarrollada para el proyecto intermedio del curso de robótica 2020-II de la Universidad Nacional de Colombia sede Bogotá.</param.description>
+    <param.screenshot>/tmp/tpbdab0d6c_df6e_497f_9196_dd0dd81f2f32.png</param.screenshot>
+    <param.version>1.0</param.version>
+    <param.products.name />
+    <param.products.id />
+    <param.products.version />
+    <param.platforms />
+    <param.output>${PROJECT_ROOT}</param.output>
+    <param.guid>508fc188-e343-44a3-a83e-8bc69bb2c860</param.guid>
+    <unset>
+      <param.version />
+      <param.products.name />
+      <param.products.id />
+      <param.products.version />
+      <param.platforms />
+      <param.output />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}/HMI_proyecto_intermedio_robotica.mlapp</file>
+    </fileset.main>
+    <fileset.depfun>
+      <file>${PROJECT_ROOT}/camara.png</file>
+      <file>${PROJECT_ROOT}/close.png</file>
+      <file>${PROJECT_ROOT}/en_espera.png</file>
+      <file>${PROJECT_ROOT}/enviar.png</file>
+      <file>${PROJECT_ROOT}/exito.png</file>
+      <file>${PROJECT_ROOT}/logou.png</file>
+      <file>${PROJECT_ROOT}/open.png</file>
+      <file>${PROJECT_ROOT}/realizado.png</file>
+      <file>${PROJECT_ROOT}/start.png</file>
+      <file>${PROJECT_ROOT}/stop.jpg</file>
+      <file>${PROJECT_ROOT}/trabajando.png</file>
+      <file>${PROJECT_ROOT}/warning.png</file>
+    </fileset.depfun>
+    <fileset.resources />
+    <fileset.package />
+    <build-deliverables>
+      <file location="/home/leonardo/Documentos/02_Robotica/04_Proyecto_intermedio/Proyecto_intermedio_robotica" name="04_HMI" optional="false">/home/leonardo/Documentos/02_Robotica/04_Proyecto_intermedio/Proyecto_intermedio_robotica/04_HMI</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>/home/leonardo/matlab</root>
+      <toolboxes>
+        <toolbox name="matlabcoder" />
+      </toolboxes>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>true</unix>
+      <mac>false</mac>
+      <windows>false</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>true</linux>
+      <solaris>false</solaris>
+      <osver>4.15.0-126-generic</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>glnxa64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
